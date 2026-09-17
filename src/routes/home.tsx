@@ -129,7 +129,6 @@ function HomePage() {
           height={896}
         />
         <div className="home-hero-greet">
-          <span>مساء الخير</span>
           <strong>Mohamed</strong>
         </div>
         <span className="home-hero-badge" aria-label="15 إشعار جديد">

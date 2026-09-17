@@ -261,17 +261,11 @@
 
 .home-hero-greet {
   position: absolute;
-  top: 6.5%;
+  top: 12.5%;
   right: 5.5%;
   text-align: right;
   color: oklch(1 0 0);
   line-height: 1.2;
-}
-
-.home-hero-greet span {
-  display: block;
-  font-size: 2cqw;
-  opacity: 0.95;
 }
 
 .home-hero-greet strong {
