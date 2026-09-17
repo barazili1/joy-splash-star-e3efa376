@@ -90,7 +90,7 @@ function TransferPage() {
         </div>
 
         <div className="ts-field-head">
-          <h3>{tabs[activeTab].label}</h3>
+          <h3>{tabs[activeTab]?.label}</h3>
           <span className="ts-help" aria-hidden="true">؟</span>
         </div>
 
