@@ -1469,8 +1469,8 @@
 }
 .ts-tab svg { width: 20px; height: 20px; }
 .ts-tab.active {
-  background: oklch(0.42 0.24 300);
-  color: oklch(1 0 0);
+  background: transparent;
+  border-color: transparent;
 }
 .ts-tab.active::after {
   content: "";
