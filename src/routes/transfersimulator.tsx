@@ -79,19 +79,24 @@ function TransferPage() {
         </div>
 
         <div className="ts-tabs" role="tablist">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab.label}
-              type="button"
-              role="tab"
-              aria-selected={activeTab === i}
-              aria-label={tab.label}
-              className={`ts-tab${activeTab === i ? " active" : ""}`}
-              onClick={() => setActiveTab(i)}
-            >
-              <img src={activeTab === i ? tab.activeIcon : tab.icon} alt="" />
-            </button>
-          ))}
+          {tabs.map((tab, i) => {
+            const enabled = i === 0 || i === tabs.length - 1;
+            return (
+              <button
+                key={tab.label}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === i}
+                aria-label={tab.label}
+                disabled={!enabled}
+                className={`ts-tab${activeTab === i ? " active" : ""}${enabled ? "" : " disabled"}`}
+                onClick={() => enabled && setActiveTab(i)}
+              >
+                <img className="tab-icon-base" src={tab.icon} alt="" />
+                <img className="tab-icon-active" src={tab.activeIcon} alt="" />
+              </button>
+            );
+          })}
         </div>
 
         <div className="ts-field-head">
