@@ -2,11 +2,16 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ChevronDown, PlusCircle } from "lucide-react";
 import bankLogo from "@/assets/nbe-logo.png";
-import iconPhone from "@/assets/phone.png";
-import iconAt from "@/assets/at.png";
-import iconBank from "@/assets/bank.png";
-import iconCard from "@/assets/card.png";
-import iconWallet from "@/assets/wallet.png";
+import iconPhone from "@/assets/phone-inactive.png";
+import iconPhoneActive from "@/assets/phone-active.png";
+import iconAt from "@/assets/at-inactive.png";
+import iconAtActive from "@/assets/at-active.png";
+import iconBank from "@/assets/bank-inactive.png";
+import iconBankActive from "@/assets/bank-active.png";
+import iconCard from "@/assets/card-inactive.png";
+import iconCardActive from "@/assets/card-active.png";
+import iconWallet from "@/assets/wallet-inactive.png";
+import iconWalletActive from "@/assets/wallet-active.png";
 import iconPerson from "@/assets/person.png";
 import iconClipboard from "@/assets/clipboard.png";
 
@@ -24,8 +29,17 @@ export const Route = createFileRoute("/transfersimulator")({
   component: TransferPage,
 });
 
+const tabs = [
+  { icon: iconPhone, activeIcon: iconPhoneActive, label: "رقم الهاتف" },
+  { icon: iconAt, activeIcon: iconAtActive, label: "عنوان InstaPay" },
+  { icon: iconBank, activeIcon: iconBankActive, label: "حساب بنكي" },
+  { icon: iconCard, activeIcon: iconCardActive, label: "بطاقة" },
+  { icon: iconWallet, activeIcon: iconWalletActive, label: "رقم المحفظة" },
+];
+
 function TransferPage() {
   const [amount, setAmount] = useState("");
+  const [activeTab, setActiveTab] = useState(0);
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const digits = e.target.value.replace(/[^\d]/g, "").replace(/^0+(?=\d)/, "");
@@ -65,25 +79,23 @@ function TransferPage() {
         </div>
 
         <div className="ts-tabs" role="tablist">
-          <button type="button" role="tab" aria-selected="true" className="ts-tab active">
-            <img src={iconPhone} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconAt} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconBank} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconCard} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconWallet} alt="" />
-          </button>
+          {tabs.map((tab, i) => (
+            <button
+              key={tab.label}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === i}
+              aria-label={tab.label}
+              className={`ts-tab${activeTab === i ? " active" : ""}`}
+              onClick={() => setActiveTab(i)}
+            >
+              <img src={activeTab === i ? tab.activeIcon : tab.icon} alt="" />
+            </button>
+          ))}
         </div>
 
         <div className="ts-field-head">
-          <h3>رقم الهاتف</h3>
+          <h3>{tabs[activeTab]?.label}</h3>
           <span className="ts-help" aria-hidden="true">؟</span>
         </div>
 
