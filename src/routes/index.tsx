@@ -1,24 +1,61 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import backgroundAsset from "@/assets/instapay-background.jpeg";
+import instapayLogo from "@/assets/instapay-logo.png";
+import ipnLogo from "@/assets/ipn-logo.png";
+import { ProgressMark } from "@/components/progress-mark";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Instapay | Splash Screen" },
+      { name: "description", content: "Instapay mobile application splash screen." },
+      { property: "og:title", content: "Instapay | Splash Screen" },
+      { property: "og:description", content: "Instapay mobile application splash screen." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [phase, setPhase] = useState<"splash" | "progress">("splash");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const showProgress = window.setTimeout(() => setPhase("progress"), 1000);
+    const goHome = window.setTimeout(() => {
+      navigate({ to: "/home" });
+    }, 3000);
+    return () => {
+      window.clearTimeout(showProgress);
+      window.clearTimeout(goHome);
+    };
+  }, [navigate]);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+    <main
+      className="splash"
+      aria-label="Instapay splash screen"
+      style={{ backgroundImage: `url(${backgroundAsset})` }}
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+      <section className="brand-lockup">
+        {phase !== "progress" && <p lang="ar" dir="rtl">أهلاً بك في</p>}
+        <h1 className="sr-only">Instapay</h1>
+        <img src={instapayLogo} alt="Instapay" />
+      </section>
+
+      {phase === "progress" && (
+        <section className="progress-screen" aria-label="جارٍ التحميل">
+          <ProgressMark />
+        </section>
+      )}
+
+      <footer className="splash-footer">
+        <img src={ipnLogo} alt="IPN" />
+        {phase !== "progress" && <small>V1.12.1</small>}
+      </footer>
+    </main>
   );
 }
