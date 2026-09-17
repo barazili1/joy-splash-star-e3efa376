@@ -11,6 +11,56 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AppBottomNav } from "../components/app-bottom-nav";
+import homeHeader from "../assets/home-header.jpeg";
+import qrCode from "../assets/qr-code.png";
+import btnQr from "../assets/btn-qr.png";
+import btnShare from "../assets/btn-share.png";
+import ipnLogo from "../assets/ipn-logo.png";
+import actionBalance from "../assets/action-balance.png";
+import actionLink from "../assets/action-link.png";
+import actionQr from "../assets/action-qr.png";
+import serviceBills from "../assets/service-bills.png";
+import serviceRequest from "../assets/service-request.png";
+import serviceSend from "../assets/service-send.png";
+import serviceHistory from "../assets/service-history.png";
+import serviceAccounts from "../assets/service-accounts.png";
+import serviceDonations from "../assets/service-donations.png";
+import tsHero from "../assets/ts-hero-bg.jpeg";
+import iconPhone from "../assets/phone.png";
+import iconAt from "../assets/at.png";
+import iconBank from "../assets/bank.png";
+import iconCard from "../assets/card.png";
+import iconWallet from "../assets/wallet.png";
+import iconPerson from "../assets/person.png";
+import iconClipboard from "../assets/clipboard.png";
+import bankLogo from "../assets/nbe-logo.png.asset.json";
+
+const pageImages = [
+  homeHeader,
+  qrCode,
+  btnQr,
+  btnShare,
+  ipnLogo,
+  actionBalance,
+  actionLink,
+  actionQr,
+  serviceBills,
+  serviceRequest,
+  serviceSend,
+  serviceHistory,
+  serviceAccounts,
+  serviceDonations,
+  tsHero,
+  iconPhone,
+  iconAt,
+  iconBank,
+  iconCard,
+  iconWallet,
+  iconPerson,
+  iconClipboard,
+  bankLogo.url,
+];
 
 function NotFoundComponent() {
   return (
@@ -77,11 +127,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Instapay" },
+      { name: "description", content: "Instapay mobile application." },
+      { name: "author", content: "Instapay" },
+      { property: "og:title", content: "Instapay" },
+      { property: "og:description", content: "Instapay mobile application." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
@@ -91,7 +141,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Rajdhani:wght@600;700&display=swap",
+      },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      ...pageImages.map((href) => ({ rel: "preload", href, as: "image" })),
     ],
   }),
   shellComponent: RootShell,
@@ -121,6 +176,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <AppBottomNav />
     </QueryClientProvider>
   );
 }
