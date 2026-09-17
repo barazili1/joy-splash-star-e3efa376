@@ -44,7 +44,7 @@ function TransferPage() {
             className="ts-from-name"
             type="text"
             dir="ltr"
-            defaultValue="mohamed.othman4279@instapay"
+            defaultValue="kareem.gmal7819@instapay"
             aria-label="اسم المرسل"
           />
           <span>PREPAID</span>

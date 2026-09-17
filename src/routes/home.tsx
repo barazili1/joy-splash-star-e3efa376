@@ -141,7 +141,7 @@ function HomePage() {
           <div className="account-top">
             <img src={bankLogo} alt="البنك الأهلي المصري" width={125} height={125} />
             <div className="account-id">
-              <p>mohamed.othman4279@instapay</p>
+              <p>kareem.gmal7819@instapay</p>
               <small>
                 PREPAID <span>****6150</span>
               </small>
@@ -247,7 +247,7 @@ function HomePage() {
           <div className="qr-card">
             <img className="qr-image" src={qrCode} alt="رمز QR" />
             <p className="qr-handle" dir="ltr">
-              mohamed.othman4279@instapay
+              kareem.gmal7819@instapay
             </p>
             <div className="qr-actions">
               <button type="button">
