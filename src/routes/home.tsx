@@ -129,10 +129,10 @@ function HomePage() {
           height={896}
         />
         <div className="home-hero-greet">
-          <strong>Mohamed</strong>
+          <strong>Kareem</strong>
         </div>
-        <span className="home-hero-badge" aria-label="15 إشعار جديد">
-          15
+        <span className="home-hero-badge" aria-label="20 إشعار جديد">
+          20
         </span>
       </div>
 

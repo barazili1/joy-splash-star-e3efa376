@@ -270,22 +270,22 @@
 
 .home-hero-greet strong {
   display: block;
-  font-size: 3.7cqw;
+  font-size: 4.6cqw;
   font-weight: 700;
 }
 
 .home-hero-badge {
   position: absolute;
-  top: 8%;
-  left: 7.5%;
+  top: 7%;
+  left: 7%;
   display: grid;
   place-items: center;
-  width: 3.6cqw;
-  height: 3.6cqw;
+  width: 4.5cqw;
+  height: 4.5cqw;
   border-radius: 50%;
   background: oklch(0.58 0.22 25);
   color: oklch(1 0 0);
-  font-size: 2cqw;
+  font-size: 2.6cqw;
   font-weight: 700;
 }
 
