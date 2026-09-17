@@ -248,10 +248,45 @@
   --home-mint-ink: oklch(0.62 0.11 175);
 }
 
+@utility home-hero-wrap {
+  position: relative;
+  container-type: inline-size;
+}
+
 @utility home-hero {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.home-hero-greet {
+  position: absolute;
+  top: 12.5%;
+  right: 5.5%;
+  text-align: right;
+  color: oklch(1 0 0);
+  line-height: 1.2;
+}
+
+.home-hero-greet strong {
+  display: block;
+  font-size: 3.7cqw;
+  font-weight: 700;
+}
+
+.home-hero-badge {
+  position: absolute;
+  top: 8%;
+  left: 7.5%;
+  display: grid;
+  place-items: center;
+  width: 3.6cqw;
+  height: 3.6cqw;
+  border-radius: 50%;
+  background: oklch(0.58 0.22 25);
+  color: oklch(1 0 0);
+  font-size: 2cqw;
+  font-weight: 700;
 }
 
 @utility home {
