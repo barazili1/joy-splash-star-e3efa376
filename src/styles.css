@@ -1481,7 +1481,7 @@
 .ts-tab .tab-icon-active { opacity: 0; transform: scale(0.82); }
 .ts-tab.active .tab-icon-base { opacity: 0; transform: scale(0.82); }
 .ts-tab.active .tab-icon-active { opacity: 1; transform: scale(1); }
-.ts-tab.disabled { cursor: default; opacity: 0.5; }
+.ts-tab.disabled { cursor: default; }
 .ts-tab.active {
   background: transparent;
   border-color: transparent;
