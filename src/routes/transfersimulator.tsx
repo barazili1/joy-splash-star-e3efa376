@@ -24,8 +24,17 @@ export const Route = createFileRoute("/transfersimulator")({
   component: TransferPage,
 });
 
+const tabs = [
+  { icon: iconPhone, label: "رقم الهاتف" },
+  { icon: iconAt, label: "عنوان InstaPay" },
+  { icon: iconBank, label: "حساب بنكي" },
+  { icon: iconCard, label: "بطاقة" },
+  { icon: iconWallet, label: "رقم المحفظة" },
+];
+
 function TransferPage() {
   const [amount, setAmount] = useState("");
+  const [activeTab, setActiveTab] = useState(0);
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const digits = e.target.value.replace(/[^\d]/g, "").replace(/^0+(?=\d)/, "");
