@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ChevronDown, PlusCircle } from "lucide-react";
-import bankLogo from "@/assets/nbe-logo.png.asset.json";
+import bankLogo from "@/assets/nbe-logo.png";
 import iconPhone from "@/assets/phone.png";
 import iconAt from "@/assets/at.png";
 import iconBank from "@/assets/bank.png";
@@ -37,7 +37,7 @@ function TransferPage() {
       <header className="ts-hero" />
 
       <section className="ts-from">
-        <img className="ts-from-logo" src={bankLogo.url} alt="البنك الأهلي المصري" />
+        <img className="ts-from-logo" src={bankLogo} alt="البنك الأهلي المصري" />
         <div className="ts-from-info">
           <small>من</small>
           <input
