@@ -1467,9 +1467,21 @@
   justify-self: center;
   width: 44px;
   padding: 0;
+  transition: opacity 0.25s ease;
 }
 .ts-tab svg { width: 20px; height: 20px; }
-.ts-tab img { width: 44px; height: 44px; border-radius: 50%; display: block; }
+.ts-tab img {
+  grid-area: 1 / 1;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: block;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.ts-tab .tab-icon-active { opacity: 0; transform: scale(0.82); }
+.ts-tab.active .tab-icon-base { opacity: 0; transform: scale(0.82); }
+.ts-tab.active .tab-icon-active { opacity: 1; transform: scale(1); }
+.ts-tab.disabled { cursor: default; opacity: 0.5; }
 .ts-tab.active {
   background: transparent;
   border-color: transparent;
