@@ -39,6 +39,7 @@ import bankLogo from "../assets/nbe-logo.png";
 
 const pageImages = [
   homeHeader,
+  homeHeaderClean,
   qrCode,
   btnQr,
   btnShare,
