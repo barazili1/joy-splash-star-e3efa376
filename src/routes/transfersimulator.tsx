@@ -74,25 +74,23 @@ function TransferPage() {
         </div>
 
         <div className="ts-tabs" role="tablist">
-          <button type="button" role="tab" aria-selected="true" className="ts-tab active">
-            <img src={iconPhone} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconAt} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconBank} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconCard} alt="" />
-          </button>
-          <button type="button" role="tab" className="ts-tab">
-            <img src={iconWallet} alt="" />
-          </button>
+          {tabs.map((tab, i) => (
+            <button
+              key={tab.label}
+              type="button"
+              role="tab"
+              aria-selected={activeTab === i}
+              aria-label={tab.label}
+              className={`ts-tab${activeTab === i ? " active" : ""}`}
+              onClick={() => setActiveTab(i)}
+            >
+              <img src={tab.icon} alt="" />
+            </button>
+          ))}
         </div>
 
         <div className="ts-field-head">
-          <h3>رقم الهاتف</h3>
+          <h3>{tabs[activeTab].label}</h3>
           <span className="ts-help" aria-hidden="true">؟</span>
         </div>
 
