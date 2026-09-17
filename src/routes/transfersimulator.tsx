@@ -2,11 +2,16 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ChevronDown, PlusCircle } from "lucide-react";
 import bankLogo from "@/assets/nbe-logo.png";
-import iconPhone from "@/assets/phone.png";
-import iconAt from "@/assets/at.png";
-import iconBank from "@/assets/bank.png";
-import iconCard from "@/assets/card.png";
-import iconWallet from "@/assets/wallet.png";
+import iconPhone from "@/assets/phone-inactive.png";
+import iconPhoneActive from "@/assets/phone-active.png";
+import iconAt from "@/assets/at-inactive.png";
+import iconAtActive from "@/assets/at-active.png";
+import iconBank from "@/assets/bank-inactive.png";
+import iconBankActive from "@/assets/bank-active.png";
+import iconCard from "@/assets/card-inactive.png";
+import iconCardActive from "@/assets/card-active.png";
+import iconWallet from "@/assets/wallet-inactive.png";
+import iconWalletActive from "@/assets/wallet-active.png";
 import iconPerson from "@/assets/person.png";
 import iconClipboard from "@/assets/clipboard.png";
 
@@ -25,11 +30,11 @@ export const Route = createFileRoute("/transfersimulator")({
 });
 
 const tabs = [
-  { icon: iconPhone, label: "رقم الهاتف" },
-  { icon: iconAt, label: "عنوان InstaPay" },
-  { icon: iconBank, label: "حساب بنكي" },
-  { icon: iconCard, label: "بطاقة" },
-  { icon: iconWallet, label: "رقم المحفظة" },
+  { icon: iconPhone, activeIcon: iconPhoneActive, label: "رقم الهاتف" },
+  { icon: iconAt, activeIcon: iconAtActive, label: "عنوان InstaPay" },
+  { icon: iconBank, activeIcon: iconBankActive, label: "حساب بنكي" },
+  { icon: iconCard, activeIcon: iconCardActive, label: "بطاقة" },
+  { icon: iconWallet, activeIcon: iconWalletActive, label: "رقم المحفظة" },
 ];
 
 function TransferPage() {
@@ -84,7 +89,7 @@ function TransferPage() {
               className={`ts-tab${activeTab === i ? " active" : ""}`}
               onClick={() => setActiveTab(i)}
             >
-              <img src={tab.icon} alt="" />
+              <img src={activeTab === i ? tab.activeIcon : tab.icon} alt="" />
             </button>
           ))}
         </div>
