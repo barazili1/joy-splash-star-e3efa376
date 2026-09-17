@@ -276,8 +276,8 @@
 
 .home-hero-badge {
   position: absolute;
-  top: 7%;
-  left: 7%;
+  top: calc(7% + 5px);
+  left: calc(7% - 5px);
   display: grid;
   place-items: center;
   width: 4.5cqw;
