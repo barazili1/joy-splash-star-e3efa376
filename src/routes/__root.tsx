@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AppBottomNav } from "../components/app-bottom-nav";
 import homeHeader from "../assets/home-header.jpeg";
+import homeHeaderClean from "../assets/home-header-clean.png";
 import qrCode from "../assets/qr-code.png";
 import btnQr from "../assets/btn-qr.png";
 import btnShare from "../assets/btn-share.png";
