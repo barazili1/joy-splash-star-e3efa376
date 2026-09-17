@@ -126,7 +126,7 @@ function HomePage() {
           src={homeHeader}
           alt="مساء الخير — ادفع فواتيرك"
           width={1200}
-          height={900}
+          height={896}
         />
         <div className="home-hero-greet">
           <span>مساء الخير</span>
