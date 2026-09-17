@@ -1208,7 +1208,7 @@
 
 .pin-boxes {
   display: grid;
-  grid-template-columns: repeat(6, 60px);
+  grid-template-columns: repeat(6, 50px);
   justify-content: center;
   gap: 11px;
   margin-top: 12px;
@@ -1218,7 +1218,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
+  width: 50px;
   height: 42px;
   border: 1px solid oklch(0.85 0 0);
   border-radius: 8px;
