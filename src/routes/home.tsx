@@ -12,7 +12,7 @@ import {
 import qrCode from "@/assets/qr-code.png";
 import btnQr from "@/assets/btn-qr.png";
 import btnShare from "@/assets/btn-share.png";
-import homeHeader from "@/assets/home-header.jpeg";
+import homeHeader from "@/assets/home-header-clean.png";
 import bankLogo from "@/assets/nbe-logo.png";
 import ipnLogo from "@/assets/ipn-logo.png";
 import actionBalance from "@/assets/action-balance.png";
@@ -120,13 +120,22 @@ function HomePage() {
   }, [loading, navigate]);
   return (
     <div className="home" dir="rtl" lang="ar">
-      <img
-        className="home-hero"
-        src={homeHeader}
-        alt="مساء الخير Mohamed — ادفع فواتيرك"
-        width={1282}
-        height={921}
-      />
+      <div className="home-hero-wrap">
+        <img
+          className="home-hero"
+          src={homeHeader}
+          alt="مساء الخير — ادفع فواتيرك"
+          width={1200}
+          height={900}
+        />
+        <div className="home-hero-greet">
+          <span>مساء الخير</span>
+          <strong>Mohamed</strong>
+        </div>
+        <span className="home-hero-badge" aria-label="15 إشعار جديد">
+          15
+        </span>
+      </div>
 
       <section className="home-section">
         <div className="account-card">
