@@ -139,7 +139,7 @@ function HomePage() {
       <section className="home-section">
         <div className="account-card">
           <div className="account-top">
-            <img src={bankLogo} alt="البنك الأهلي المصري" loading="lazy" width={130} height={130} />
+            <img src={bankLogo} alt="البنك الأهلي المصري" width={125} height={125} />
             <div className="account-id">
               <p>mohamed.othman4279@instapay</p>
               <small>
